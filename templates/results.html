@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+</head>
+<body>
+    <h1>Results</h1>
+
+    <h2>Original Image:</h2>
+    <img src="{{ url_for('get_uploaded_image') }}" alt="Uploaded Image">
+    
+    <h2>Output Images:</h2>
+    <ul>
+        {% for i in range(results|length) %}
+            <li>
+                <img src="{{ url_for('get_output_image', index=i) }}" alt="Output Image {{ i }}">
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Display the uploaded image here -->
+    <h2>Uploaded Image:</h2>
+    <img src="{{ url_for('get_uploaded_image') }}" alt="Uploaded Image">
+</body>
+</html>
